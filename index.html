@@ -1,0 +1,219 @@
+TESTLINE_123<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get Started with Vvendr</title>
+<meta name="description" content="Join Vvendr — matched, verified quotes and leads for service providers, property managers, and building owners." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='none' stroke='%230F766E' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='700' fill='%230F172A' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#0F766E; --teal-deep:#115E59; --teal-mist:#F0FDFA;
+    --gold:#EAB308; --slate-900:#0F172A; --slate-700:#334155; --slate-500:#64748B;
+    --slate-200:#E2E8F0; --paper:#FAFAF7; --white:#ffffff; --radius:12px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--slate-900);
+    background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:780px;margin:0 auto;padding:30px 20px 64px;}
+  header.brand{display:flex;align-items:center;gap:12px;margin-bottom:26px;}
+  .logo{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;color:var(--slate-900);}
+  .logo .accent{color:var(--teal);}
+  .badge{margin-left:auto;font-size:12px;font-weight:600;color:var(--teal-deep);background:var(--teal-mist);
+    border:1px solid #cfe8e4;padding:6px 11px;border-radius:999px;}
+  .hero{background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius);padding:28px 26px;margin-bottom:22px;}
+  .hero h1{font-family:'Fraunces',Georgia,serif;font-weight:500;margin:0 0 10px;font-size:30px;line-height:1.1;letter-spacing:-0.02em;}
+  .hero p{margin:0;color:var(--slate-700);font-size:16px;}
+  .chooser{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px;}
+  @media(max-width:640px){.chooser{grid-template-columns:1fr;}}
+  .choice{background:var(--white);border:2px solid var(--slate-200);border-radius:var(--radius);padding:18px 16px;
+    cursor:pointer;text-align:left;transition:border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px;font-family:inherit;}
+  .choice:hover{border-color:var(--teal);}
+  .choice.active{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.14);}
+  .choice .ico{width:34px;height:34px;border-radius:9px;background:var(--teal-mist);color:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .choice h3{font-family:'Fraunces',Georgia,serif;margin:6px 0 0;font-size:17px;font-weight:600;}
+  .choice p{margin:0;font-size:13px;color:var(--slate-500);}
+  form{background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius);padding:26px;display:none;}
+  form.active{display:block;}
+  .formhead{margin:0 0 20px;}
+  .formhead h2{font-family:'Fraunces',Georgia,serif;margin:0 0 4px;font-size:22px;font-weight:600;letter-spacing:-0.01em;}
+  .formhead p{margin:0;color:var(--slate-700);font-size:14px;}
+  .section{margin:0 0 24px;}
+  .section > h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate-500);margin:0 0 13px;font-weight:600;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+  @media(max-width:560px){.grid{grid-template-columns:1fr;}}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:15px;}
+  .field.full{grid-column:1 / -1;}
+  label{font-size:14px;font-weight:600;color:var(--slate-900);}
+  label .req{color:#dc2626;} label .opt{font-weight:400;color:var(--slate-500);font-size:12px;}
+  input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea,input[type=file]{
+    width:100%;padding:11px 12px;font-size:15px;color:var(--slate-900);border:1px solid var(--slate-200);
+    border-radius:10px;background:#fff;font-family:inherit;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.12);}
+  textarea{resize:vertical;min-height:80px;}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;}
+  @media(max-width:560px){.checks{grid-template-columns:1fr;}}
+  .check{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500;color:var(--slate-900);
+    padding:9px 11px;border:1px solid var(--slate-200);border-radius:10px;cursor:pointer;background:#fff;}
+  .check:hover{border-color:var(--teal);}
+  .check input{width:16px;height:16px;accent-color:var(--teal);margin:0;}
+  .hint{font-size:12px;color:var(--slate-500);margin:-8px 0 0;}
+  button.submit{background:var(--teal);color:#fff;border:none;border-radius:12px;padding:15px 22px;font-size:16px;
+    font-weight:600;cursor:pointer;width:100%;transition:background .15s;margin-top:6px;font-family:inherit;}
+  button.submit:hover{background:var(--teal-deep);}
+  .legal{font-size:12px;color:var(--slate-500);margin-top:12px;text-align:center;}
+  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--slate-500);line-height:1.7;}
+  footer a{color:var(--teal-deep);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <span class="logo">V<span class="accent">v</span>endr</span>
+    <span class="badge">Get Started</span>
+  </header>
+
+  <div class="hero">
+    <h1>Tell us who you are — we'll take it from there.</h1>
+    <p>Vvendr matches verified building &amp; property-management requests with the right service providers. Pick your path and we'll route you the moment there's a match.</p>
+  </div>
+
+  <div class="chooser">
+    <button type="button" class="choice" data-target="form-building"><span class="ico">🏢</span><h3>I own or manage a building</h3><p>Free, matched quotes for cleaning, HVAC, pest &amp; more.</p></button>
+    <button type="button" class="choice" data-target="form-pm"><span class="ico">🗂️</span><h3>I manage properties (PM)</h3><p>Portfolio-wide vendor sourcing &amp; enterprise access.</p></button>
+    <button type="button" class="choice" data-target="form-provider"><span class="ico">🔧</span><h3>I'm a service provider</h3><p>Verified leads in your trade &amp; market.</p></button>
+  </div>
+
+  <form id="form-building" name="building-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="building-quote" />
+    <p hidden><label>Skip: <input name="bot-field" /></label></p>
+    <div class="formhead"><h2>Get free quotes for your building</h2><p>2–3 matched quotes within 48 hours. Insurance &amp; references verified for you. No cost, no obligation.</p></div>
+    <div class="grid">
+      <div class="field full"><label for="b-address">Building address <span class="req">*</span></label><input type="text" id="b-address" name="building_address" required /></div>
+      <div class="field"><label for="b-name">Your name <span class="req">*</span></label><input type="text" id="b-name" name="name" required /></div>
+      <div class="field"><label for="b-email">Your email <span class="req">*</span></label><input type="email" id="b-email" name="email" required /></div>
+      <div class="field"><label for="b-phone">Phone <span class="opt">(optional)</span></label><input type="tel" id="b-phone" name="phone" /></div>
+      <div class="field"><label for="b-role">Your role <span class="req">*</span></label><select id="b-role" name="role" required><option value="" selected disabled>Select…</option><option>Building owner</option><option>Property manager</option><option>Tenant</option><option>Other</option></select></div>
+      <div class="field"><label for="b-type">Building type <span class="req">*</span></label><select id="b-type" name="building_type" required><option value="" selected disabled>Select…</option><option>Office</option><option>Retail</option><option>Multifamily</option><option>Industrial</option><option>HOA</option><option>Mixed</option><option>Other</option></select></div>
+      <div class="field"><label for="b-sqft">Estimated square footage <span class="req">*</span></label><select id="b-sqft" name="sqft" required><option value="" selected disabled>Select…</option><option>Under 5K</option><option>5K–10K</option><option>10K–25K</option><option>25K–100K</option><option>100K+</option><option>Not sure</option></select></div>
+      <div class="field"><label for="b-services">Services needed <span class="req">*</span></label><select id="b-services" name="services" required><option value="" selected disabled>Select…</option><option>Cleaning</option><option>HVAC</option><option>Pest</option><option>Landscaping</option><option>Multiple</option></select></div>
+      <div class="field"><label for="b-timeline">Timeline <span class="req">*</span></label><select id="b-timeline" name="timeline" required><option value="" selected disabled>Select…</option><option>Immediate</option><option>Within 30 days</option><option>Within 60 days</option><option>Just researching</option></select></div>
+      <div class="field full"><label for="b-details">What's the situation? <span class="opt">(optional)</span></label><textarea id="b-details" name="details" maxlength="140" placeholder="A sentence or two about what you need."></textarea></div>
+    </div>
+    <button class="submit" type="submit">Get my free quotes</button>
+    <p class="legal">No cost, no obligation, no spam.</p>
+  </form>
+
+  <form id="form-pm" name="pm-profile" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="pm-profile" />
+    <p hidden><label>Skip: <input name="bot-field" /></label></p>
+    <div class="formhead"><h2>Property management — enterprise access</h2><p>One intake for your whole portfolio. We source, verify, and route vendors across every property you manage.</p></div>
+    <div class="section"><h4>Company</h4><div class="grid">
+      <div class="field"><label for="pm-company">Company name <span class="req">*</span></label><input type="text" id="pm-company" name="company" required /></div>
+      <div class="field"><label for="pm-contact">Contact name <span class="req">*</span></label><input type="text" id="pm-contact" name="contact" required /></div>
+      <div class="field"><label for="pm-email">Work email <span class="req">*</span></label><input type="email" id="pm-email" name="email" required /></div>
+      <div class="field"><label for="pm-phone">Phone <span class="req">*</span></label><input type="tel" id="pm-phone" name="phone" required /></div>
+    </div></div>
+    <div class="section"><h4>Portfolio</h4><div class="grid">
+      <div class="field"><label for="pm-props"># properties managed <span class="req">*</span></label><input type="number" id="pm-props" name="properties_managed" min="1" required /></div>
+      <div class="field"><label for="pm-sqft">Total portfolio sqft <span class="opt">(approx.)</span></label><select id="pm-sqft" name="portfolio_sqft"><option value="" selected disabled>Select…</option><option>Under 100K</option><option>100K–500K</option><option>500K–1M</option><option>1M–5M</option><option>5M+</option></select></div>
+      <div class="field full"><label>Property types <span class="req">*</span></label><div class="checks">
+        <label class="check"><input type="checkbox" name="property_types" value="Office" /> Office</label>
+        <label class="check"><input type="checkbox" name="property_types" value="Retail" /> Retail</label>
+        <label class="check"><input type="checkbox" name="property_types" value="Multifamily" /> Multifamily</label>
+        <label class="check"><input type="checkbox" name="property_types" value="Industrial" /> Industrial</label>
+        <label class="check"><input type="checkbox" name="property_types" value="HOA" /> HOA</label>
+        <label class="check"><input type="checkbox" name="property_types" value="Mixed / Other" /> Mixed / Other</label>
+      </div></div>
+      <div class="field full"><label for="pm-markets">Markets / metros <span class="req">*</span></label><input type="text" id="pm-markets" name="markets" placeholder="e.g. Tampa, Atlanta, Dallas…" required /></div>
+    </div></div>
+    <div class="section"><h4>What you need</h4>
+      <div class="field full"><label>Services you procure <span class="req">*</span></label><div class="checks">
+        <label class="check"><input type="checkbox" name="services_procured" value="Cleaning / Janitorial" /> Cleaning / Janitorial</label>
+        <label class="check"><input type="checkbox" name="services_procured" value="HVAC / Mechanical" /> HVAC / Mechanical</label>
+        <label class="check"><input type="checkbox" name="services_procured" value="Pest Control" /> Pest Control</label>
+        <label class="check"><input type="checkbox" name="services_procured" value="Landscaping" /> Landscaping</label>
+        <label class="check"><input type="checkbox" name="services_procured" value="Plumbing" /> Plumbing</label>
+        <label class="check"><input type="checkbox" name="services_procured" value="Electrical" /> Electrical</label>
+      </div></div>
+      <div class="field full"><label for="pm-notes">Anything else? <span class="opt">(optional)</span></label><textarea id="pm-notes" name="notes" placeholder="Renewal timing, current pain points, # of vendors today…"></textarea></div>
+    </div>
+    <button class="submit" type="submit">Request enterprise access</button>
+    <p class="legal">A Vvendr rep will follow up within one business day.</p>
+  </form>
+
+  <form id="form-provider" name="provider-profile" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="provider-profile" />
+    <p hidden><label>Skip: <input name="bot-field" /></label></p>
+    <div class="formhead"><h2>Service provider profile</h2><p>Get matched, verified building leads in your trade and market. Replacement guarantee in writing; exclusivity available by trade + metro.</p></div>
+    <div class="section"><h4>Your company</h4><div class="grid">
+      <div class="field"><label for="p-company">Company name <span class="req">*</span></label><input type="text" id="p-company" name="company" required /></div>
+      <div class="field"><label for="p-contact">Contact name <span class="req">*</span></label><input type="text" id="p-contact" name="contact" required /></div>
+      <div class="field"><label for="p-email">Work email <span class="req">*</span></label><input type="email" id="p-email" name="email" required /></div>
+      <div class="field"><label for="p-phone">Phone <span class="req">*</span></label><input type="tel" id="p-phone" name="phone" required /></div>
+      <div class="field"><label for="p-web">Website <span class="opt">(optional)</span></label><input type="text" id="p-web" name="website" placeholder="https://" /></div>
+      <div class="field"><label for="p-years">Years in business <span class="opt">(optional)</span></label><input type="number" id="p-years" name="years_in_business" min="0" /></div>
+    </div></div>
+    <div class="section"><h4>What you do</h4>
+      <div class="field full"><label>Trades / verticals <span class="req">*</span></label><div class="checks">
+        <label class="check"><input type="checkbox" name="verticals" value="Mechanical / HVAC" /> Mechanical / HVAC</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Commercial Cleaning / Janitorial" /> Commercial Cleaning / Janitorial</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Pest Control" /> Pest Control</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Landscaping / Grounds" /> Landscaping / Grounds</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Plumbing" /> Plumbing</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Electrical" /> Electrical</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Roofing" /> Roofing</label>
+        <label class="check"><input type="checkbox" name="verticals" value="Other" /> Other</label>
+      </div></div>
+    </div>
+    <div class="section"><h4>Where you work</h4><div class="grid">
+      <div class="field"><label for="p-metro">Primary market <span class="req">*</span></label><select id="p-metro" name="primary_market" required><option value="" selected disabled>Select…</option><option>Tampa, FL</option><option>Atlanta, GA</option><option>Dallas–Fort Worth, TX</option><option>Denver, CO</option><option>Las Vegas, NV</option><option>Kansas City, MO</option><option>St. Louis, MO</option><option>Other (list below)</option></select></div>
+      <div class="field"><label for="p-radius">Service radius <span class="opt">(optional)</span></label><select id="p-radius" name="service_radius"><option value="" selected disabled>Select…</option><option>Up to 25 miles</option><option>Up to 50 miles</option><option>Up to 100 miles</option><option>Statewide</option><option>Multi-state</option></select></div>
+      <div class="field full"><label for="p-coverage">Metro areas / ZIP codes you cover <span class="req">*</span></label><input type="text" id="p-coverage" name="coverage_area" placeholder="e.g. Tampa, Clearwater, St. Petersburg — 33602, 33607…" required /></div>
+    </div></div>
+    <div class="section"><h4>Credentials</h4><div class="grid">
+      <div class="field"><label for="p-license">License number <span class="opt">(if applicable)</span></label><input type="text" id="p-license" name="license_number" /></div>
+      <div class="field"><label for="p-insured">General liability insurance? <span class="req">*</span></label><select id="p-insured" name="insured" required><option value="" selected disabled>Select…</option><option>Yes</option><option>No</option></select></div>
+      <div class="field full"><label for="p-coi">Certificate of Insurance (COI) <span class="opt">(optional — PDF or image)</span></label><input type="file" id="p-coi" name="coi" accept=".pdf,.png,.jpg,.jpeg" /><p class="hint">You can also email this to hello@vvendr.com later — it won't hold up your application.</p></div>
+    </div></div>
+    <div class="section"><h4>The jobs you want</h4><div class="grid">
+      <div class="field"><label for="p-jobsize">Target job size <span class="opt">(optional)</span></label><select id="p-jobsize" name="target_job_size"><option value="" selected disabled>Select…</option><option>Under $2,500</option><option>$2,500 – $10,000</option><option>$10,000 – $50,000</option><option>$50,000+</option><option>Any size</option></select></div>
+      <div class="field"><label for="p-capacity">Jobs / month <span class="opt">(optional)</span></label><input type="number" id="p-capacity" name="monthly_capacity" min="0" /></div>
+      <div class="field full"><label>Building types you want <span class="opt">(optional)</span></label><div class="checks">
+        <label class="check"><input type="checkbox" name="building_types" value="Office" /> Office</label>
+        <label class="check"><input type="checkbox" name="building_types" value="Retail" /> Retail</label>
+        <label class="check"><input type="checkbox" name="building_types" value="Multifamily" /> Multifamily</label>
+        <label class="check"><input type="checkbox" name="building_types" value="Industrial" /> Industrial</label>
+        <label class="check"><input type="checkbox" name="building_types" value="HOA" /> HOA</label>
+        <label class="check"><input type="checkbox" name="building_types" value="Mixed / Other" /> Mixed / Other</label>
+      </div></div>
+      <div class="field"><label for="p-package">Lead package interest <span class="opt">(optional)</span></label><select id="p-package" name="package_interest"><option value="" selected disabled>Select…</option><option>Not sure yet — send me details</option><option>1 lead (try it)</option><option>5 leads</option><option>10 leads</option><option>25 leads</option><option>35 leads</option><option>50 leads</option><option>100 leads</option></select></div>
+      <div class="field"><label for="p-billing">Billing email <span class="opt">(if different)</span></label><input type="email" id="p-billing" name="billing_email" /></div>
+    </div>
+      <div class="field full"><label for="p-notes">Anything else? <span class="opt">(optional)</span></label><textarea id="p-notes" name="notes" placeholder="Specialties, certifications, current capacity, questions…"></textarea></div>
+    </div>
+    <button class="submit" type="submit">Submit my provider profile</button>
+    <p class="legal">By submitting, you agree to be contacted about matched leads. No spam, ever.</p>
+  </form>
+
+  <footer>
+    MFAE LLC dba Vvendr &nbsp;·&nbsp; 117 S Lexington Street STE 100, Harrisonville, MO 64701<br />
+    <a href="tel:+13142616222">314-261-6222</a> &nbsp;·&nbsp; <a href="https://vvendr.com">vvendr.com</a>
+  </footer>
+</div>
+<script>
+  var choices=document.querySelectorAll('.choice'),forms=document.querySelectorAll('form');
+  choices.forEach(function(btn){btn.addEventListener('click',function(){
+    var id=btn.getAttribute('data-target');
+    choices.forEach(function(c){c.classList.remove('active');});btn.classList.add('active');
+    forms.forEach(function(f){f.classList.remove('active');});
+    var t=document.getElementById(id); if(t){t.classList.add('active');t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });});
+</script>
+</body>
+</html>
